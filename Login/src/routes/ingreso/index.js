@@ -6,6 +6,7 @@ import ReCaptcha from './ReCaptcha';
 const sitekey = '6LeI6ewUAAAAAD7705euj7dv5CMPN9VRE7pORTpe';
 
 let recaptchaInstance, recaptchaInvisibleInstance;
+let IdRecaptcha;
 
 const changeCallback = (response) => {
    console.log('onChange: ' + response);
@@ -16,7 +17,9 @@ const expiredCallback = () => {
 };
 
 const getResponse = () => {
+	IdRecaptcha = recaptchaInstance.getResponse();
    console.log(recaptchaInstance.getResponse());
+   
 };
 
 
@@ -30,6 +33,48 @@ export default class Ingreso extends Component {
 	componentWillUnmount() {
 
 	}
+
+	async doLogin(){
+		/*if (!this.state.username) {
+		  return;
+		}
+		if (!this.state.password) {
+		  return;
+		}
+		*/
+		IdRecaptcha = recaptchaInstance.getResponse();
+   		console.log(recaptchaInstance.getResponse());
+	   
+	
+		try {
+		  let res = await fetch('/login', {
+			method: 'post',
+			headers: {
+			  'Accept': 'application/json',
+			  'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+			  username: '',
+			  password: '',
+			  verified: IdRecaptcha
+			})
+		  });  
+	
+		  let result = await res.json();
+		  if (result && result.success) {
+			console.log("si sirve*************************");
+			//Usuarios.IsLoggedIn = true;
+			//Usuarios.username = result.username;
+		  }
+		  else if (result && result.success === false) {
+			//this.resetForm();
+			alert(result.msg);
+		  }
+		} catch (e) {
+		  console.log(e);
+		  //this.resetForm();
+		}
+	  }
 
 	// Note: `user` comes from the URL, courtesy of our router
 	render({ user }, { time, count }) {
@@ -86,7 +131,7 @@ export default class Ingreso extends Component {
 							<div class="row">
 								<div class="col-3"></div>
 								<div class="col-6" align="center">
-									<button type="button" class="btn btn-primary" onClick = {getResponse}>Registrarse</button>
+									<button type="button" class="btn btn-primary" onClick = {this.doLogin}>Registrarse</button>
 								</div>
 							</div>
 						</div>
