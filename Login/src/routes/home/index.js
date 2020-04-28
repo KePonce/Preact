@@ -1,11 +1,20 @@
-import { h } from 'preact';
+// src/components/header/index.js
+import { h, Component } from 'preact';
+import ReCaptcha from 'preact-google-recaptcha';
 import style from './style';
 
-const Home = () => (
-	<div class={style.home}>
-		<h1>Home</h1>
-		<p>This is the Home component.</p>
-	</div>
-);
+export default class Home extends Component {
 
-export default Home;
+	onChange(response) {
+		console.log("Captcha response:", response);
+	}
+
+   render() {
+      return (
+         <header class={style.home}>
+			
+			Aqui va el recaptcha
+         </header>
+      );
+   }
+}

@@ -5,7 +5,7 @@ import Header from './header';
 
 // Code-splitting is automated for routes
 import Home from '../routes/home';
-import Profile from '../routes/profile';
+import Ingreso from '../routes/ingreso';
 
 export default class App extends Component {
 	
@@ -23,8 +23,8 @@ export default class App extends Component {
 				<Header />
 				<Router onChange={this.handleRoute}>
 					<Home path="/" />
-					<Profile path="/profile/" user="me" />
-					<Profile path="/profile/:user" />
+					<Ingreso path="/ingreso/" user="me" />
+					<Ingreso path="/ingreso/:user" />
 				</Router>
 			</div>
 		);

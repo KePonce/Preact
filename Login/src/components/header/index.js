@@ -7,7 +7,7 @@ const Header = () => (
 		<h1>Bono App</h1>
 		<nav>
 			<Link activeClassName={style.active} href="/">Bienvenidos</Link>
-			<Link activeClassName={style.active} href="/profile">Ingreso</Link>
+			<Link activeClassName={style.active} href="/ingreso">Ingreso</Link>
 		</nav>
 	</header>
 );

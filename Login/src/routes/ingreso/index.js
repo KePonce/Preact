@@ -2,36 +2,21 @@ import { h, Component } from 'preact';
 import 'bootstrap/dist/css/bootstrap.css';
 import style from './style';
 
-export default class Profile extends Component {
-	state = {
-		time: Date.now(),
-		count: 10
-	};
-
-	// update the current time
-	updateTime = () => {
-		this.setState({ time: Date.now() });
-	};
-
-	increment = () => {
-		this.setState({ count: this.state.count+1 });
-	};
-
+export default class Ingreso extends Component {
 	// gets called when this route is navigated to
 	componentDidMount() {
-		// start a timer for the clock:
-		this.timer = setInterval(this.updateTime, 1000);
+
 	}
 
 	// gets called just before navigating away from the route
 	componentWillUnmount() {
-		clearInterval(this.timer);
+		
 	}
 
 	// Note: `user` comes from the URL, courtesy of our router
 	render({ user }, { time, count }) {
 		return (
-			<div class={style.profile}>	
+			<div class={style.ingreso}>	
 			<div class="row">
 				<div class="col">
 					<h1>Ingreso de Datos</h1>
