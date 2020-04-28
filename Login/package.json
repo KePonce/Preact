@@ -30,6 +30,8 @@
   },
   "dependencies": {
     "bootstrap": "^4.4.1",
+    "jquery": "^3.5.0",
+    "popper.js": "^1.16.1",
     "preact": "^10.3.2",
     "preact-bootstrap": "0.0.0",
     "preact-google-recaptcha": "^0.2.1",

@@ -12,9 +12,8 @@ export default class Home extends Component {
    render() {
       return (
          <header class={style.home}>
-			
-			Aqui va el recaptcha
-         </header>
+			</header>
+
       );
    }
 }
